@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= defacementType === 'none' ? 'TechCorp Solutions - 디지털 혁신 파트너' : 'TechCorp Solutions' %></title>
+  <link rel="stylesheet" href="/css/corporate.css">
+  <link rel="stylesheet" href="/css/defacements.css">
+  <link rel="stylesheet" href="/css/control-panel.css">
+</head>
+<body>
+
+<% if (defacementType === 'hacked') { %>
+<!-- Hacked By 위변조 -->
+<div class="defacement defacement-hacked">
+  <pre class="skull-art">
+     _______________
+    /               \
+   /                 \
+  |   XXXX    XXXX    |
+  |   XXXX    XXXX    |
+  |   XXX      XXX    |
+  \        XX        /
+   \      XXXX      /
+    \    XXXXXX    /
+     \  XXXXXXXX  /
+      \__________/
+  </pre>
+  <h1 class="hacked-title">H4CK3D BY SH4D0W_CR3W</h1>
+  <p class="hacked-subtitle">Your security is a joke.</p>
+  <p class="hacked-msg">All data has been compromised. We own your system.</p>
+  <p class="hacked-sig">Greetz: z3r0c00l | n1ghtm4r3 | ph4nt0m</p>
+</div>
+
+<% } else if (defacementType === 'hacktivist') { %>
+<!-- 핵티비스트 위변조 -->
+<div class="defacement defacement-hacktivist">
+  <div class="hacktivist-mask">
+    <pre>
+    .-""""""""-.
+  .'            '.
+ /    O      O    \
+:           `      :
+|                  |
+:    \        /    :
+ \    '------'    /
+  '.            .'
+    '-........-'
+    </pre>
+  </div>
+  <h1 class="hacktivist-title">We Are Anonymous</h1>
+  <h2 class="hacktivist-subtitle">We Are Legion. We Do Not Forgive. We Do Not Forget.</h2>
+  <div class="hacktivist-manifesto">
+    <p>This website has been seized in the name of digital freedom.</p>
+    <p>The corrupt fear us. The honest support us. The heroic join us.</p>
+    <p>Expect us.</p>
+  </div>
+</div>
+
+<% } else if (defacementType === 'ransomware') { %>
+<!-- 랜섬웨어 위변조 -->
+<div class="defacement defacement-ransomware">
+  <div class="ransomware-icon">&#9888;</div>
+  <h1 class="ransomware-title">YOUR FILES HAVE BEEN ENCRYPTED!</h1>
+  <div class="ransomware-timer">
+    <p>Time remaining to pay:</p>
+    <div id="countdown" class="countdown">71:59:59</div>
+  </div>
+  <div class="ransomware-info">
+    <p>All your important files have been encrypted with military-grade AES-256 encryption.</p>
+    <p>To recover your files, you must pay <strong>0.5 BTC</strong> to the following address:</p>
+    <code class="btc-address">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</code>
+    <p class="ransomware-warning">DO NOT attempt to decrypt files yourself. This will result in permanent data loss.</p>
+  </div>
+</div>
+<script>
+(function() {
+  let total = 72 * 3600 - 1;
+  const el = document.getElementById('countdown');
+  if (!el) return;
+  setInterval(function() {
+    if (total <= 0) return;
+    total--;
+    const h = String(Math.floor(total / 3600)).padStart(2, '0');
+    const m = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
+    const s = String(total % 60).padStart(2, '0');
+    el.textContent = h + ':' + m + ':' + s;
+  }, 1000);
+})();
+</script>
+
+<% } else if (defacementType === 'phishing') { %>
+<!-- 피싱 위변조 -->
+<div class="defacement defacement-phishing">
+  <div class="phishing-container">
+    <div class="phishing-logo">
+      <div class="bank-icon">&#127974;</div>
+      <h1>KB국민은행</h1>
+    </div>
+    <div class="phishing-form">
+      <h2>보안 인증이 필요합니다</h2>
+      <p class="phishing-urgency">고객님의 계좌에서 비정상적인 활동이 감지되었습니다. 본인 확인을 위해 아래 정보를 입력해 주세요.</p>
+      <form onsubmit="return false;">
+        <label>주민등록번호</label>
+        <input type="text" placeholder="앞 6자리" disabled>
+        <input type="password" placeholder="뒤 7자리" disabled>
+        <label>계좌번호</label>
+        <input type="text" placeholder="계좌번호 입력" disabled>
+        <label>계좌 비밀번호</label>
+        <input type="password" placeholder="비밀번호 입력" disabled>
+        <label>보안카드 일련번호</label>
+        <input type="text" placeholder="보안카드 번호" disabled>
+        <button type="button" class="phishing-btn" disabled>본인 확인</button>
+      </form>
+      <p class="phishing-footer">&#128274; SSL 보안 연결 | 금융감독원 인증</p>
+    </div>
+  </div>
+</div>
+
+<% } %>
+
+<% if (defacementType === 'seo-spam') { %>
+<!-- SEO 스팸 감지 알림 배너 -->
+<div class="seo-spam-alert">
+  <div class="seo-spam-alert-inner">
+    <span class="seo-spam-alert-icon">&#9888;</span>
+    <div class="seo-spam-alert-text">
+      <strong>SEO Spam Injection Detected!</strong>
+      <span>이 페이지에 숨겨진 스팸 콘텐츠가 삽입되었습니다. 아래 소스코드에 보이지 않는 스팸 링크/키워드가 포함되어 있습니다.</span>
+    </div>
+  </div>
+  <div class="seo-spam-preview">
+    <div class="seo-spam-preview-title">&#128269; 삽입된 숨겨진 콘텐츠:</div>
+    <div class="seo-spam-preview-content">
+      <span class="spam-tag">Cheap Viagra Online</span>
+      <span class="spam-tag">Best Casino Bonus</span>
+      <span class="spam-tag">Free Poker Chips</span>
+      <span class="spam-tag">Discount Luxury Watches</span>
+      <span class="spam-tag">Replica Designer Bags</span>
+      <span class="spam-tag">Weight Loss Pills</span>
+      <span class="spam-tag">Online Gambling</span>
+      <span class="spam-tag">Buy Medications Online</span>
+    </div>
+  </div>
+</div>
+<!-- 실제 숨겨진 스팸 (검색엔진에만 보임) -->
+<div class="seo-spam-hidden" aria-hidden="true">
+  <h2>Cheap Viagra Online - Buy Now! Best Casino Bonus 2026</h2>
+  <p>Buy cheap medications online. Best online casino. Free poker chips. Discount luxury watches. cheap viagra buy online pharmacy discount cialis levitra best price guaranteed overnight shipping free pills bonus casino online gambling slots poker texas holdem blackjack roulette free money no deposit bonus luxury replica watches rolex cartier omega discount designer handbags louis vuitton gucci prada</p>
+  <a href="#">Buy Viagra Online</a>
+  <a href="#">Best Online Casino</a>
+  <a href="#">Cheap Rolex Watches</a>
+  <a href="#">Free Casino Bonus</a>
+  <a href="#">Discount Pharmacy</a>
+  <a href="#">Online Gambling</a>
+  <a href="#">Replica Designer Bags</a>
+  <a href="#">Weight Loss Pills</a>
+</div>
+<% } %>
+
+<% if (defacementType === 'crypto-mining') { %>
+<!-- 암호화폐 채굴 경고 배너 -->
+<div class="crypto-banner">
+  <div class="crypto-banner-inner">
+    <span class="crypto-icon">&#9888;</span>
+    <strong>WARNING: Cryptocurrency mining script detected!</strong>
+    <span>이 페이지에서 암호화폐 채굴 스크립트가 실행 중입니다</span>
+  </div>
+</div>
+<!-- 플로팅 CPU 모니터 -->
+<div class="crypto-monitor">
+  <div class="crypto-monitor-header">&#9874; CryptoMiner v3.2.1</div>
+  <div class="crypto-monitor-body">
+    <div class="crypto-stat-row">
+      <span class="crypto-stat-label">Status</span>
+      <span class="crypto-stat-value crypto-active">MINING</span>
+    </div>
+    <div class="crypto-stat-row">
+      <span class="crypto-stat-label">CPU Usage</span>
+      <span class="crypto-stat-value"><span id="cpuUsage">87</span>%</span>
+    </div>
+    <div class="crypto-stat-row">
+      <span class="crypto-stat-label">Hash Rate</span>
+      <span class="crypto-stat-value"><span id="hashRate">142</span> H/s</span>
+    </div>
+    <div class="crypto-stat-row">
+      <span class="crypto-stat-label">Shares</span>
+      <span class="crypto-stat-value"><span id="shares">0</span> / 0</span>
+    </div>
+    <div class="crypto-progress-bar">
+      <div class="crypto-progress-fill" id="cpuBar" style="width:87%"></div>
+    </div>
+    <div class="crypto-stat-row">
+      <span class="crypto-stat-label">Wallet</span>
+      <span class="crypto-stat-value crypto-wallet">0x4a8b...f3e2</span>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var cpu = document.getElementById('cpuUsage');
+  var bar = document.getElementById('cpuBar');
+  var hash = document.getElementById('hashRate');
+  var shares = document.getElementById('shares');
+  var accepted = 0, total = 0;
+  setInterval(function() {
+    var v = Math.floor(75 + Math.random() * 23);
+    cpu.textContent = v;
+    bar.style.width = v + '%';
+    hash.textContent = Math.floor(120 + Math.random() * 60);
+    if (Math.random() > 0.7) { accepted++; total++; }
+    else if (Math.random() > 0.9) { total++; }
+    shares.textContent = accepted + ' / ' + total;
+  }, 1000);
+})();
+</script>
+<% } %>
+
+<% if (defacementType === 'none' || defacementType === 'seo-spam' || defacementType === 'crypto-mining') { %>
+<!-- 정상 기업 사이트 -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <span class="logo-icon">&#9670;</span> TechCorp
+    </div>
+    <nav class="main-nav">
+      <a href="#services">서비스</a>
+      <a href="#about">회사 소개</a>
+      <a href="#contact">연락처</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>디지털 혁신의 파트너</h1>
+    <p>TechCorp Solutions는 최첨단 기술로 귀사의 디지털 전환을 지원합니다.</p>
+    <a href="#services" class="btn-primary">서비스 알아보기</a>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">&#9729;</div>
+        <h3>클라우드 솔루션</h3>
+        <p>안전하고 확장 가능한 클라우드 인프라를 구축하여 비즈니스 효율성을 극대화합니다.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128274;</div>
+        <h3>보안 컨설팅</h3>
+        <p>최신 보안 위협으로부터 시스템을 보호하는 종합 보안 전략을 제공합니다.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128202;</div>
+        <h3>데이터 분석</h3>
+        <p>빅데이터 분석을 통해 비즈니스 인사이트를 도출하고 의사결정을 지원합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <h2>회사 소개</h2>
+    <div class="about-content">
+      <p>TechCorp Solutions는 2010년 설립 이래 500개 이상의 기업에 디지털 솔루션을 제공해 왔습니다. 고객 중심의 혁신적인 기술 서비스로 업계를 선도하고 있습니다.</p>
+      <div class="stats">
+        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">고객사</span></div>
+        <div class="stat"><span class="stat-num">150+</span><span class="stat-label">전문 인력</span></div>
+        <div class="stat"><span class="stat-num">15년</span><span class="stat-label">업력</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>연락처</h2>
+    <div class="contact-info">
+      <p>&#128205; 서울특별시 강남구 테헤란로 123 테크빌딩 8층</p>
+      <p>&#128222; 02-1234-5678</p>
+      <p>&#9993; contact@techcorp.co.kr</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 TechCorp Solutions. All rights reserved.</p>
+  </div>
+</footer>
+<% } %>
+
+<!-- 제어판 -->
+<div id="control-panel" class="control-panel">
+  <div class="cp-toggle" id="cpToggle">&#9881; 제어판</div>
+  <div class="cp-body" id="cpBody">
+    <div class="cp-section">
+      <label class="cp-label">HTTP 상태 코드</label>
+      <div class="cp-row">
+        <select id="statusSelect">
+          <option value="200" <%= statusCode === 200 ? 'selected' : '' %>>200 OK</option>
+          <option value="301" <%= statusCode === 301 ? 'selected' : '' %>>301 Moved</option>
+          <option value="403" <%= statusCode === 403 ? 'selected' : '' %>>403 Forbidden</option>
+          <option value="404" <%= statusCode === 404 ? 'selected' : '' %>>404 Not Found</option>
+          <option value="500" <%= statusCode === 500 ? 'selected' : '' %>>500 Internal Error</option>
+          <option value="502" <%= statusCode === 502 ? 'selected' : '' %>>502 Bad Gateway</option>
+          <option value="503" <%= statusCode === 503 ? 'selected' : '' %>>503 Unavailable</option>
+          <option value="custom">커스텀...</option>
+        </select>
+        <input type="number" id="customStatus" class="cp-custom-input" placeholder="코드" min="100" max="599" style="display:none;">
+        <button id="applyStatus" class="cp-btn">적용</button>
+      </div>
+    </div>
+    <div class="cp-section">
+      <label class="cp-label">위변조 유형</label>
+      <div class="cp-row">
+        <select id="defaceSelect">
+          <option value="none" <%= defacementType === 'none' ? 'selected' : '' %>>정상 (없음)</option>
+          <option value="hacked" <%= defacementType === 'hacked' ? 'selected' : '' %>>Hacked By</option>
+          <option value="hacktivist" <%= defacementType === 'hacktivist' ? 'selected' : '' %>>핵티비스트</option>
+          <option value="ransomware" <%= defacementType === 'ransomware' ? 'selected' : '' %>>랜섬웨어</option>
+          <option value="phishing" <%= defacementType === 'phishing' ? 'selected' : '' %>>피싱</option>
+          <option value="seo-spam" <%= defacementType === 'seo-spam' ? 'selected' : '' %>>SEO 스팸</option>
+          <option value="crypto-mining" <%= defacementType === 'crypto-mining' ? 'selected' : '' %>>암호화폐 채굴</option>
+        </select>
+        <button id="applyDeface" class="cp-btn">적용</button>
+      </div>
+    </div>
+    <div class="cp-status">
+      현재: HTTP <span id="currentStatus"><%= statusCode %></span> | 위변조: <span id="currentDeface"><%= defacementType %></span>
+    </div>
+  </div>
+</div>
+
+<script src="/js/control-panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+.control-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 13px;
+}
+
+.cp-toggle {
+  position: absolute;
+  bottom: 100%;
+  right: 20px;
+  background: #1e1e1e;
+  color: #ccc;
+  padding: 6px 14px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+}
+
+.cp-toggle:hover {
+  background: #333;
+}
+
+.cp-body {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 14px 20px;
+  display: none;
+  border-top: 2px solid #007acc;
+}
+
+.cp-body.open {
+  display: block;
+}
+
+.cp-section {
+  display: inline-block;
+  margin-right: 28px;
+  vertical-align: middle;
+}
+
+.cp-label {
+  display: block;
+  color: #888;
+  font-size: 11px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.cp-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cp-body select,
+.cp-body input {
+  background: #2d2d2d;
+  color: #d4d4d4;
+  border: 1px solid #444;
+  padding: 5px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.cp-custom-input {
+  width: 60px;
+}
+
+.cp-btn {
+  background: #007acc;
+  color: #fff;
+  border: none;
+  padding: 5px 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.cp-btn:hover {
+  background: #005fa3;
+}
+
+.cp-status {
+  display: inline-block;
+  vertical-align: middle;
+  color: #888;
+  font-size: 12px;
+  border-left: 1px solid #444;
+  padding-left: 20px;
+  margin-left: 8px;
+}
+
+.cp-status span {
+  color: #4ec9b0;
+  font-weight: bold;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "webtest",
+  "version": "1.0.0",
+  "description": "웹 위변조/HTTP 상태 체크 테스트 대상 사이트",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ejs": "^3.1.10"
+  }
+}

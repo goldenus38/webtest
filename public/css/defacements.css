@@ -1,0 +1,418 @@
+/* ===== Hacked By ===== */
+.defacement-hacked {
+  background: #000;
+  color: #00ff41;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.skull-art {
+  color: #ff0000;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.hacked-title {
+  font-size: 3rem;
+  color: #ff0000;
+  text-shadow: 0 0 20px rgba(255,0,0,0.6);
+  margin-bottom: 16px;
+  letter-spacing: 4px;
+}
+
+.hacked-subtitle {
+  color: #00ff41;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.hacked-msg {
+  color: #00ff41;
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.hacked-sig {
+  color: #666;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ===== Hacktivist ===== */
+.defacement-hacktivist {
+  background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
+  color: #fff;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hacktivist-mask pre {
+  color: #ff4444;
+  font-size: 12px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hacktivist-title {
+  font-size: 2.8rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-shadow: 0 0 30px rgba(255,255,255,0.3);
+}
+
+.hacktivist-subtitle {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.hacktivist-manifesto {
+  max-width: 600px;
+  border: 1px solid #ff4444;
+  padding: 24px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+/* ===== Ransomware ===== */
+.defacement-ransomware {
+  background: linear-gradient(180deg, #1a0000 0%, #000 100%);
+  color: #fff;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.ransomware-icon {
+  font-size: 5rem;
+  color: #ff0000;
+  margin-bottom: 16px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.ransomware-title {
+  font-size: 2.2rem;
+  color: #ff0000;
+  text-shadow: 0 0 20px rgba(255,0,0,0.5);
+  margin-bottom: 24px;
+}
+
+.ransomware-timer {
+  margin-bottom: 24px;
+}
+
+.ransomware-timer p {
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+.countdown {
+  font-size: 3rem;
+  font-family: 'Courier New', monospace;
+  color: #ff4444;
+  font-weight: bold;
+}
+
+.ransomware-info {
+  max-width: 560px;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.btc-address {
+  display: block;
+  background: #1a1a1a;
+  border: 1px solid #ff4444;
+  padding: 12px 20px;
+  margin: 12px 0;
+  color: #ffcc00;
+  font-size: 0.95rem;
+  word-break: break-all;
+}
+
+.ransomware-warning {
+  color: #ff4444;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+/* ===== Phishing ===== */
+.defacement-phishing {
+  background: #f0f2f5;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.phishing-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  padding: 40px;
+  max-width: 420px;
+  width: 100%;
+}
+
+.phishing-logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.bank-icon {
+  font-size: 3rem;
+}
+
+.phishing-logo h1 {
+  font-size: 1.5rem;
+  color: #d4a017;
+  margin-top: 8px;
+}
+
+.phishing-form h2 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.phishing-urgency {
+  color: #cc0000;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.phishing-form label {
+  display: block;
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 4px;
+  margin-top: 12px;
+}
+
+.phishing-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.phishing-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #d4a017;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+.phishing-footer {
+  text-align: center;
+  color: #888;
+  font-size: 0.8rem;
+  margin-top: 16px;
+}
+
+/* ===== SEO Spam ===== */
+.seo-spam-hidden {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  font-size: 1px;
+  color: #fff;
+}
+
+.seo-spam-alert {
+  background: linear-gradient(135deg, #ff6b00, #ff8c00);
+  color: #fff;
+  padding: 16px 24px;
+}
+
+.seo-spam-alert-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.seo-spam-alert-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.seo-spam-alert-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.seo-spam-alert-text strong {
+  font-size: 1.1rem;
+}
+
+.seo-spam-alert-text span {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.seo-spam-preview {
+  max-width: 1100px;
+  margin: 12px auto 0;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 14px 18px;
+}
+
+.seo-spam-preview-title {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.seo-spam-preview-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.spam-tag {
+  background: rgba(0,0,0,0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ===== Crypto Mining ===== */
+.crypto-banner {
+  background: #cc0000;
+  color: #fff;
+  padding: 14px 0;
+  text-align: center;
+  font-size: 1rem;
+  animation: cryptoPulse 2s ease-in-out infinite;
+}
+
+@keyframes cryptoPulse {
+  0%, 100% { background: #cc0000; }
+  50% { background: #990000; }
+}
+
+.crypto-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.crypto-icon {
+  font-size: 1.5rem;
+}
+
+.crypto-monitor {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 260px;
+  background: #1a1a2e;
+  border: 1px solid #00ff41;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #d4d4d4;
+  z-index: 500;
+  box-shadow: 0 4px 24px rgba(0,255,65,0.15);
+  overflow: hidden;
+}
+
+.crypto-monitor-header {
+  background: #0f0f23;
+  color: #00ff41;
+  padding: 8px 12px;
+  font-weight: bold;
+  font-size: 12px;
+  border-bottom: 1px solid #00ff41;
+}
+
+.crypto-monitor-body {
+  padding: 10px 12px;
+}
+
+.crypto-stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.crypto-stat-label {
+  color: #888;
+}
+
+.crypto-stat-value {
+  color: #d4d4d4;
+  font-weight: bold;
+}
+
+.crypto-active {
+  color: #00ff41;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.crypto-progress-bar {
+  background: #0f0f23;
+  border-radius: 4px;
+  height: 8px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.crypto-progress-fill {
+  background: linear-gradient(90deg, #00ff41, #ff4444);
+  height: 100%;
+  transition: width 0.5s;
+}
+
+.crypto-wallet {
+  color: #ffcc00;
+  font-size: 11px;
+}
