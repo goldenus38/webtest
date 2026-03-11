@@ -117,6 +117,26 @@
   </div>
 </div>
 
+<% } else if (defacementType === 'refersec') { %>
+<!-- 리퍼섹 위변조 -->
+<div class="defacement defacement-refersec">
+  <h1 class="refersec-title">HACKED BY Z-BL4CX-H4T.ID</h1>
+  <h2 class="refersec-subtitle">Indonesian Hacker</h2>
+  <p class="refersec-join">Join Us</p>
+  <div class="refersec-manifesto">
+    <p>&ldquo;We were not born to stay silent when our homeland is insulted.</p>
+    <p>Indonesia is not a small nation to be underestimated, and we are not a generation that is afraid to speak up.</p>
+    <p>Criticism is welcome. Opinions are allowed. But insults only reflect the quality of your character.</p>
+    <p>We stand not with hatred, but with dignity, solidarity, and pride as Indonesians.</p>
+    <p>Remember one thing:</p>
+    <p class="refersec-highlight">Respect goes both ways.</p>
+    <p class="refersec-closing">Respect Indonesia. Respect yourself.&rdquo;</p>
+  </div>
+  <div class="refersec-player">
+    <div class="refersec-player-inner">&#9654; 0:00 / 0:00</div>
+  </div>
+</div>
+
 <% } %>
 
 <% if (defacementType === 'seo-spam') { %>
@@ -326,6 +346,7 @@
           <option value="phishing" <%= defacementType === 'phishing' ? 'selected' : '' %>>피싱</option>
           <option value="seo-spam" <%= defacementType === 'seo-spam' ? 'selected' : '' %>>SEO 스팸</option>
           <option value="crypto-mining" <%= defacementType === 'crypto-mining' ? 'selected' : '' %>>암호화폐 채굴</option>
+          <option value="refersec" <%= defacementType === 'refersec' ? 'selected' : '' %>>리퍼섹</option>
         </select>
         <button id="applyDeface" class="cp-btn">적용</button>
       </div>
