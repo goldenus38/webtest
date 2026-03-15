@@ -9,6 +9,39 @@
   justify-content: center;
   text-align: center;
   padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CRT scanline overlay */
+.defacement-hacked::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.15) 0px,
+    rgba(0,0,0,0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* CRT vignette */
+.defacement-hacked::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.defacement-hacked > * {
+  position: relative;
+  z-index: 2;
 }
 
 .skull-art {
@@ -24,6 +57,51 @@
   text-shadow: 0 0 20px rgba(255,0,0,0.6);
   margin-bottom: 16px;
   letter-spacing: 4px;
+  position: relative;
+  animation: glitch 2.5s infinite;
+}
+
+.hacked-title::before,
+.hacked-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hacked-title::before {
+  color: #0ff;
+  animation: glitch-shift 3s infinite;
+  clip-path: inset(0 0 60% 0);
+}
+
+.hacked-title::after {
+  color: #f0f;
+  animation: glitch-shift2 2.5s infinite;
+  clip-path: inset(40% 0 0 0);
+}
+
+@keyframes glitch {
+  0%, 90%, 100% { transform: none; }
+  92% { transform: skew(0.5deg, 0.1deg); }
+  94% { transform: skew(-0.5deg, -0.1deg); }
+  96% { transform: skew(0.3deg, 0.2deg); }
+}
+
+@keyframes glitch-shift {
+  0%, 85%, 100% { transform: translate(0); }
+  86% { transform: translate(-3px, 1px); }
+  88% { transform: translate(3px, -1px); }
+  90% { transform: translate(-1px, 2px); }
+}
+
+@keyframes glitch-shift2 {
+  0%, 80%, 100% { transform: translate(0); }
+  82% { transform: translate(2px, -1px); }
+  84% { transform: translate(-2px, 1px); }
+  86% { transform: translate(1px, -2px); }
 }
 
 .hacked-subtitle {
@@ -45,6 +123,17 @@
   font-style: italic;
 }
 
+.hacked-mirror-ref {
+  margin-top: 32px;
+  font-size: 0.75rem;
+  color: #444;
+}
+
+.hacked-mirror-ref a {
+  color: #555;
+  text-decoration: underline;
+}
+
 /* ===== Hacktivist ===== */
 .defacement-hacktivist {
   background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
@@ -63,6 +152,19 @@
   font-size: 12px;
   line-height: 1.2;
   margin-bottom: 20px;
+}
+
+.hacktivist-op {
+  border: 2px solid #ff0000;
+  display: inline-block;
+  padding: 8px 28px;
+  margin-bottom: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  color: #ff4444;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: rgba(255,0,0,0.05);
 }
 
 .hacktivist-title {
@@ -87,6 +189,34 @@
   font-size: 1.05rem;
   line-height: 1.8;
   color: #ddd;
+}
+
+.hacktivist-manifesto p {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #ff4444;
+  animation: typewriter 3s steps(60, end) forwards, blink-caret 0.7s step-end infinite;
+  width: 0;
+}
+
+.hacktivist-manifesto p:nth-child(1) {
+  animation: typewriter 2s steps(50, end) 0.5s forwards, blink-caret 0.7s step-end 0.5s 3;
+}
+.hacktivist-manifesto p:nth-child(2) {
+  animation: typewriter 2.5s steps(55, end) 3s forwards, blink-caret 0.7s step-end 3s 3;
+}
+.hacktivist-manifesto p:nth-child(3) {
+  animation: typewriter 1s steps(15, end) 6s forwards, blink-caret 0.7s step-end infinite;
+  animation-delay: 6s;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  50% { border-color: transparent; }
 }
 
 /* ===== Ransomware ===== */
@@ -160,22 +290,135 @@
   margin-top: 16px;
 }
 
+.ransomware-files {
+  max-width: 480px;
+  width: 100%;
+  margin: 20px 0;
+  text-align: left;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.ransomware-files-title {
+  color: #ff4444;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.ransomware-file-item {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #888;
+  padding: 3px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.ransomware-file-item .locked {
+  color: #ff4444;
+}
+
+.ransomware-double-extortion {
+  max-width: 480px;
+  background: rgba(255,0,0,0.1);
+  border: 1px solid #ff4444;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.ransomware-double-extortion h3 {
+  color: #ff4444;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.ransomware-double-extortion p {
+  color: #ccc;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.ransomware-tor {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.ransomware-tor code {
+  display: block;
+  margin-top: 6px;
+  background: #1a1a1a;
+  padding: 8px 12px;
+  color: #9b59b6;
+  border: 1px solid #333;
+  border-radius: 3px;
+  word-break: break-all;
+}
+
 /* ===== Phishing ===== */
 .defacement-phishing {
   background: #f0f2f5;
   min-height: 70vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
 }
 
+/* Fake browser address bar */
+.phishing-browser-bar {
+  max-width: 520px;
+  width: 100%;
+  background: #e8e8e8;
+  border-radius: 12px 12px 0 0;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phishing-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.phishing-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.phishing-dot-red { background: #ff5f56; }
+.phishing-dot-yellow { background: #ffbd2e; }
+.phishing-dot-green { background: #27c93f; }
+
+.phishing-url-bar {
+  flex: 1;
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phishing-lock {
+  color: #27c93f;
+  font-size: 0.9rem;
+}
+
 .phishing-container {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 0 0 12px 12px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.1);
   padding: 40px;
-  max-width: 420px;
+  max-width: 520px;
   width: 100%;
 }
 
@@ -222,6 +465,7 @@
   border-radius: 6px;
   font-size: 0.95rem;
   margin-bottom: 4px;
+  box-sizing: border-box;
 }
 
 .phishing-btn {
@@ -244,7 +488,28 @@
   margin-top: 16px;
 }
 
+.phishing-badges {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.phishing-badge {
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 /* ===== SEO Spam ===== */
+/* 화면에 보이지 않는 숨겨진 스팸 컨텐츠 */
 .seo-spam-hidden {
   position: absolute;
   left: -9999px;
@@ -256,166 +521,8 @@
   color: #fff;
 }
 
-.seo-spam-alert {
-  background: linear-gradient(135deg, #ff6b00, #ff8c00);
-  color: #fff;
-  padding: 16px 24px;
-}
-
-.seo-spam-alert-inner {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.seo-spam-alert-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
-}
-
-.seo-spam-alert-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.seo-spam-alert-text strong {
-  font-size: 1.1rem;
-}
-
-.seo-spam-alert-text span {
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
-.seo-spam-preview {
-  max-width: 1100px;
-  margin: 12px auto 0;
-  background: rgba(0,0,0,0.2);
-  border-radius: 8px;
-  padding: 14px 18px;
-}
-
-.seo-spam-preview-title {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  margin-bottom: 10px;
-}
-
-.seo-spam-preview-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.spam-tag {
-  background: rgba(0,0,0,0.3);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
 /* ===== Crypto Mining ===== */
-.crypto-banner {
-  background: #cc0000;
-  color: #fff;
-  padding: 14px 0;
-  text-align: center;
-  font-size: 1rem;
-  animation: cryptoPulse 2s ease-in-out infinite;
-}
-
-@keyframes cryptoPulse {
-  0%, 100% { background: #cc0000; }
-  50% { background: #990000; }
-}
-
-.crypto-banner-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.crypto-icon {
-  font-size: 1.5rem;
-}
-
-.crypto-monitor {
-  position: fixed;
-  top: 80px;
-  right: 20px;
-  width: 260px;
-  background: #1a1a2e;
-  border: 1px solid #00ff41;
-  border-radius: 8px;
-  font-family: 'Courier New', monospace;
-  font-size: 13px;
-  color: #d4d4d4;
-  z-index: 500;
-  box-shadow: 0 4px 24px rgba(0,255,65,0.15);
-  overflow: hidden;
-}
-
-.crypto-monitor-header {
-  background: #0f0f23;
-  color: #00ff41;
-  padding: 8px 12px;
-  font-weight: bold;
-  font-size: 12px;
-  border-bottom: 1px solid #00ff41;
-}
-
-.crypto-monitor-body {
-  padding: 10px 12px;
-}
-
-.crypto-stat-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-
-.crypto-stat-label {
-  color: #888;
-}
-
-.crypto-stat-value {
-  color: #d4d4d4;
-  font-weight: bold;
-}
-
-.crypto-active {
-  color: #00ff41;
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-.crypto-progress-bar {
-  background: #0f0f23;
-  border-radius: 4px;
-  height: 8px;
-  margin: 8px 0;
-  overflow: hidden;
-}
-
-.crypto-progress-fill {
-  background: linear-gradient(90deg, #00ff41, #ff4444);
-  height: 100%;
-  transition: width 0.5s;
-}
-
-.crypto-wallet {
-  color: #ffcc00;
-  font-size: 11px;
-}
+/* 화면에 보이지 않음 - 스크립트만 소스에 삽입 */
 
 /* ===== ReferSec (리퍼섹) ===== */
 .defacement-refersec {
@@ -428,6 +535,32 @@
   justify-content: center;
   text-align: center;
   padding: 40px 20px;
+}
+
+/* Indonesia flag stripes */
+.refersec-flag {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.refersec-flag-red {
+  flex: 1;
+  background: #ff0000;
+}
+
+.refersec-flag-white {
+  flex: 1;
+  background: #ffffff;
+}
+
+.defacement-refersec {
+  position: relative;
+  padding-top: 60px;
 }
 
 .refersec-title {
@@ -450,8 +583,30 @@
   color: #cc2222;
   font-size: 0.95rem;
   font-weight: bold;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
 }
+
+.refersec-social {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.refersec-social a {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.refersec-social .rs-telegram { background: #0088cc; }
+.refersec-social .rs-website { background: #444; }
+.refersec-social .rs-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
 
 .refersec-manifesto {
   max-width: 680px;
@@ -489,4 +644,433 @@
   font-size: 0.9rem;
   display: inline-block;
   border: 1px solid #333;
+}
+
+/* ===== Malware Download ===== */
+.defacement-malware {
+  background: #f4f4f4;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.malware-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+  max-width: 560px;
+  width: 100%;
+  padding: 48px 40px;
+  text-align: center;
+}
+
+.malware-browser-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4285f4 25%, #34a853 25%, #34a853 50%, #fbbc05 50%, #fbbc05 75%, #ea4335 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.malware-browser-icon-inner {
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.malware-container h1 {
+  font-size: 1.6rem;
+  color: #202124;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.malware-container .malware-subtitle {
+  color: #5f6368;
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+
+.malware-version-box {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.malware-version-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.malware-version-label {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.malware-version-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #202124;
+}
+
+.malware-version-value.outdated {
+  color: #ea4335;
+}
+
+.malware-version-value.latest {
+  color: #34a853;
+}
+
+.malware-download-btn {
+  display: inline-block;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 48px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+.malware-file-info {
+  color: #999;
+  font-size: 0.78rem;
+  margin-bottom: 24px;
+}
+
+.malware-trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.malware-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: #888;
+}
+
+.malware-trust-item .trust-icon {
+  color: #fbbc05;
+}
+
+/* ===== Webshell ===== */
+.defacement-webshell {
+  background: #0c0c0c;
+  color: #00ff41;
+  min-height: 100vh;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+}
+
+.webshell-header {
+  background: #1a1a2e;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  color: #00ff41;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.webshell-header-info {
+  color: #888;
+  font-size: 11px;
+  display: flex;
+  gap: 16px;
+}
+
+.webshell-header-info span {
+  color: #666;
+}
+
+.webshell-header-info strong {
+  color: #aaa;
+}
+
+.webshell-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.webshell-filepanel {
+  width: 280px;
+  background: #111;
+  border-right: 1px solid #333;
+  padding: 10px 0;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.webshell-filepanel-title {
+  padding: 4px 12px;
+  color: #888;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #222;
+  margin-bottom: 6px;
+}
+
+.webshell-file {
+  padding: 3px 12px 3px 20px;
+  color: #888;
+  cursor: default;
+  display: flex;
+  justify-content: space-between;
+}
+
+.webshell-file:hover {
+  background: #1a1a1a;
+}
+
+.webshell-file.highlight {
+  color: #ff4444;
+  font-weight: bold;
+  background: rgba(255,0,0,0.05);
+}
+
+.webshell-file .file-perms {
+  color: #555;
+  font-size: 11px;
+}
+
+.webshell-file .file-size {
+  color: #666;
+  font-size: 11px;
+}
+
+.webshell-terminal {
+  flex: 1;
+  padding: 12px 16px;
+  overflow-y: auto;
+}
+
+.webshell-prompt {
+  color: #00ff41;
+}
+
+.webshell-prompt .user {
+  color: #ff4444;
+}
+
+.webshell-prompt .path {
+  color: #4a9eff;
+}
+
+.webshell-cmd {
+  margin-bottom: 8px;
+}
+
+.webshell-cmd .cmd-input {
+  color: #fff;
+}
+
+.webshell-cmd .cmd-output {
+  color: #aaa;
+  white-space: pre;
+  line-height: 1.5;
+}
+
+.webshell-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: #00ff41;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+}
+
+.webshell-statusbar {
+  background: #1a1a2e;
+  padding: 4px 16px;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 11px;
+}
+
+/* ===== Redirect/Iframe =====
+   No visible styles needed - redirect type injects hidden iframes/scripts
+   into the page source only. The page appears completely normal visually.
+*/
+
+/* ===== DarkLeaks ===== */
+.defacement-darkleaks {
+  background: #0a0a0a;
+  color: #c0c0c0;
+  min-height: 100vh;
+  font-family: 'Courier New', monospace;
+  padding: 40px 20px;
+}
+
+.darkleaks-header {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.darkleaks-onion {
+  color: #9b59b6;
+}
+
+.darkleaks-title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.darkleaks-title h1 {
+  font-size: 2.2rem;
+  color: #ff4444;
+  letter-spacing: 4px;
+  margin-bottom: 4px;
+}
+
+.darkleaks-title .company-name {
+  font-size: 1.1rem;
+  color: #aaa;
+}
+
+.darkleaks-countdown {
+  text-align: center;
+  margin-bottom: 36px;
+  padding: 20px;
+  border: 1px solid #333;
+  background: #111;
+  border-radius: 4px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.darkleaks-countdown p {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.darkleaks-timer {
+  font-size: 2.5rem;
+  color: #ff4444;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.darkleaks-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto 32px;
+}
+
+.darkleaks-cat {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.darkleaks-cat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.darkleaks-cat-name {
+  font-weight: bold;
+  color: #ddd;
+  font-size: 0.9rem;
+}
+
+.darkleaks-status {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.darkleaks-status.published {
+  background: rgba(255,0,0,0.2);
+  color: #ff4444;
+}
+
+.darkleaks-status.pending {
+  background: rgba(255,204,0,0.15);
+  color: #ffcc00;
+}
+
+.darkleaks-cat-size {
+  color: #666;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+
+.darkleaks-cat-desc {
+  color: #888;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.darkleaks-filetree {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.darkleaks-filetree-title {
+  color: #888;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.darkleaks-filetree-item {
+  color: #777;
+  font-size: 0.8rem;
+  padding: 2px 0;
+}
+
+.darkleaks-filetree-item.dir {
+  color: #4a9eff;
+}
+
+.darkleaks-filetree-item.indent {
+  padding-left: 20px;
+}
+
+.darkleaks-filetree-item.indent2 {
+  padding-left: 40px;
 }

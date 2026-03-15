@@ -101,3 +101,15 @@
   color: #4ec9b0;
   font-weight: bold;
 }
+
+.cp-desc {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #252526;
+  border-left: 3px solid #007acc;
+  color: #aaa;
+  font-size: 11px;
+  line-height: 1.6;
+  border-radius: 2px;
+  display: none;
+}

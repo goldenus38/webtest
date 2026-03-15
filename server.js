@@ -35,7 +35,7 @@ app.post('/api/config', (req, res) => {
   }
 
   if (defacementType !== undefined) {
-    const validTypes = ['none', 'hacked', 'hacktivist', 'ransomware', 'phishing', 'seo-spam', 'crypto-mining', 'refersec'];
+    const validTypes = ['none', 'hacked', 'hacktivist', 'ransomware', 'phishing', 'seo-spam', 'crypto-mining', 'refersec', 'malware-download', 'webshell', 'redirect', 'darkleaks'];
     if (validTypes.includes(defacementType)) {
       state.defacementType = defacementType;
     }
